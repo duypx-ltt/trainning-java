@@ -1,7 +1,5 @@
 package training1;
 
-import java.util.Scanner;
-
 public class Square {
 	public float edge;
 
@@ -18,21 +16,9 @@ public class Square {
 	}
 
 	public void printAll() {
-		System.out.println("edge = " + edge);
-		System.out.println("perimeter = " + (edge * 4));
-		System.out.println("area = " + (edge * edge));
+		this.printEdge();
+		this.perimeter();
+		this.area();
 	}
 
-	public static void main(String[] args) {
-
-		Scanner sc = new Scanner(System.in);
-		System.out.println("edge = ");
-		float x = sc.nextFloat();
-		Square square = new Square();
-		square.edge = x;
-		square.printEdge();
-		square.perimeter();
-		square.area();
-		square.printAll();
-	}
 }

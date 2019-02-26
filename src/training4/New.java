@@ -56,15 +56,20 @@ public class New implements INew {
 
 	}
 
-	public static int[] rateList = new int[3];
+	public static ArrayList<Integer> rateList = new ArrayList<Integer>();
 
-	public void calculate(int[] arr) {
-		float x = ((arr[0] + arr[1] + arr[2]) / 3);
-		this.averageRate = x;
+	public void calculate(ArrayList<Integer> arr) {
+		int size = arr.size();
+		int S = 0;
+		for (int x : arr) {
+			S = S + x;
+		}
+		this.averageRate = S / size;
 	}
-
+	
+	static Scanner sc = new Scanner(System.in);
+	
 	public static New input() {
-		Scanner sc = new Scanner(System.in);
 		New oj1 = new New();
 		System.out.println("id : ");
 		oj1.setId(Integer.parseInt(sc.nextLine()));
@@ -75,11 +80,14 @@ public class New implements INew {
 		System.out.println("content : ");
 		oj1.setContent(sc.nextLine());
 		System.out.println("rate 1 : ");
-		oj1.rateList[0] = Integer.parseInt(sc.nextLine());
+		int x = Integer.parseInt(sc.nextLine());
+		New.rateList.add(x);
 		System.out.println("rate 2 : ");
-		oj1.rateList[1] = Integer.parseInt(sc.nextLine());
+		x = Integer.parseInt(sc.nextLine());
+		New.rateList.add(x);
 		System.out.println("rate 3 : ");
-		oj1.rateList[2] = Integer.parseInt(sc.nextLine());
+		x = Integer.parseInt(sc.nextLine());
+		New.rateList.add(x);
 		oj1.calculate(rateList);
 		return oj1;
 
@@ -89,36 +97,6 @@ public class New implements INew {
 		for (New object : arr) {
 			object.display();
 		}
-	}
-
-	public static void main(String[] args) {
-		ArrayList<New> list = new ArrayList<New>();
-		Scanner sc = new Scanner(System.in);
-		New tmp = new New();
-		int menu;
-		do {
-			System.out.println("----------------------");
-			System.out.println("1. Insert news");
-			System.out.println("2. View list news");
-			System.out.println("3. Average rate");
-			System.out.println("4. Exit");
-			System.out.println("your choice : ");
-			menu = Integer.parseInt(sc.nextLine());
-			switch (menu) {
-			case 1:
-				tmp = input();
-				list.add(tmp);
-				break;
-			case 2:
-				displayAll(list);
-				break;
-			case 3:
-				displayAll(list);
-				break;
-			case 4:
-				break;
-			}
-		} while (menu != 4);
 	}
 
 }

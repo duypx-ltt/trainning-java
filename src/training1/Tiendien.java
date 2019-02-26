@@ -5,17 +5,21 @@ import java.util.Scanner;
 public class Tiendien {
 	public static float soDien;
 	public static float giaTien;
+	public static final int price1 = 1000;
+	public static final int price2 = 1250;
+	public static final int price3 = 1800;
+	public static final int price4 = 2500;
 
-	public static float giaTien(float soDien) {
+	public static float tinhTien(float soDien) {
 
 		if (0 <= soDien && soDien < 25)
-			giaTien = soDien * 1000;
+			giaTien = soDien * price1;
 		if (25 <= soDien && soDien < 75)
-			giaTien = soDien * 1250;
+			giaTien = soDien * price2;
 		if (75 <= soDien && soDien < 150)
-			giaTien = soDien * 180;
+			giaTien = soDien * price3;
 		if (150 <= soDien)
-			giaTien = soDien * 2500;
+			giaTien = soDien * price4;
 		return giaTien;
 
 	}
@@ -28,7 +32,8 @@ public class Tiendien {
 			System.out.println("nhap lai : ");
 			soDien = sc.nextFloat();
 		}
-		giaTien = giaTien(soDien);
+		giaTien = tinhTien(soDien);
 		System.out.println("gia tien : " + giaTien);
+		sc.close();
 	}
 }
