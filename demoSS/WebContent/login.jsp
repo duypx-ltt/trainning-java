@@ -21,7 +21,6 @@
 				}
 				i++;
 			}
-
 		}
 	%>
 	<form action="DemoSession" method="POST">
@@ -41,7 +40,9 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="checkbox" name="remember">Remember me</td>
+				<td><input type="checkbox" name="remember"
+					<%if (listCookie[0].getName().equals("mailCookie"))
+				out.print("checked");%>>Remember me</td>
 			</tr>
 			<tr>
 				<td></td>
