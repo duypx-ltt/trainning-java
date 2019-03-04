@@ -24,7 +24,7 @@ public class DemoSession extends HttpServlet {
 			throws ServletException, IOException {
 		String mail = request.getParameter("username");
 		String pass = request.getParameter("password");
-		if (val.EmailValidator(mail) == true && val.PassValidator(pass) == true) {
+		if (val.EmailValidator(mail) == true && val.PassValidator(mail, pass) == true) {
 			HttpSession session = request.getSession();
 			session.setAttribute("username", mail);
 			Cookie mailCookies = new Cookie("mailCookie", mail);
