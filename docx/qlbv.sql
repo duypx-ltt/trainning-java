@@ -1,7 +1,7 @@
 create database qlbv
 use qlbv
 drop database qlbv
-drop table tblUser
+
 create table tbl_user_profile(
 	id int identity primary key
 	,name varchar(255)
@@ -9,13 +9,19 @@ create table tbl_user_profile(
 	,age int 
 	,sex binary(2)
 	,cmt int
-	,creat_at date
+	,create_at date
+	,update_at date
+	,delete_at date
 	
 )
 
 create table tbl_user (
-	email varchar(255)
+	id int identity primary key
+	,profile_id int foreign key references tbl_user_profile(id)
 	,pass varchar(60)
+	,create_at date
+	,update_at date
+	,delete_at date
 )
 
 CREATE TABLE tbl_ticket(
@@ -27,11 +33,17 @@ CREATE TABLE tbl_ticket(
 	price	int,
 	vip	binary(2),
 	seat varchar(10)
+	,create_at date
+	,update_at date
+	,delete_at date
 )
 
 create table tbl_airline(
 	id int identity primary key,
-	info varchar 
+	info varchar
+	,create_at date
+	,update_at date
+	,delete_at date
 )
 
 create table tbl_airplane(
@@ -39,6 +51,9 @@ create table tbl_airplane(
 	,name varchar(255)
 	,brand varchar(10)
 	,number_of_seat int
+	,create_at date
+	,update_at date
+	,delete_at date
 )
 
 create table tbl_bill(
@@ -47,6 +62,8 @@ create table tbl_bill(
 	,user_id int foreign key references tbl_user_profile(id)
 	,quantum int
 	,create_at date
+	,update_at date
+	,delete_at date
 )
 
 create table tbl_flight(
@@ -54,6 +71,9 @@ create table tbl_flight(
 	,flight_time time
 	,airline_id int foreign key references tbl_airline(id)
 	,airplane_id int foreign key references tbl_airplane(id)
+	,create_at date
+	,update_at date
+	,delete_at date
 )
 
 create table news(
@@ -61,6 +81,9 @@ create table news(
 	,title nvarchar(255)
 	,content nvarchar
 	,publisher_id  int foreign key references tbl_admin(id)
+	,create_at date
+	,update_at date
+	,delete_at date
 )
 
 
@@ -71,5 +94,8 @@ create table tbl_admin(
 	,pass varchar(50)
 	,phone int 
 	,sex binary(2)
+	,create_at date
+	,update_at date
+	,delete_at date
 	
 )
