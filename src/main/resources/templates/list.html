@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<p><a href="#" th:href="@{/user/add}">New user</a></p>
+<form action="#" method="get" th:action="@{/user/search}">
+    Search by name <input name="name" type="search">
+    <button type="submit">search</button>
+    <br>
+</form>
+<h3>List of users</h3>
+<table>
+    <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Sex</th>
+    <th>Phone</th>
+    <th>Age</th>
+    <th>Cmt</th>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${user}">
+        <td th:text="${item.getId()}"></td>
+        <td th:text="${item.getName()}"></td>
+        <td th:text="${item.getSex()}"></td>
+        <td th:text="${item.getPhone()}"></td>
+        <td th:text="${item.getAge()}"></td>
+        <td th:text="${item.getCmt()}"></td>
+        <td><a href="#" th:href="@{/user/edit(id=${item.getId()})}"> Edit</a></td>
+        <td><a href="#" th:href="@{/user/delete(id=${item.getId()})}"> Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<div th:if="${successMessage}">
+    <p style="color: red" th:text="${successMessage}"></p>
+</div>
+</body>
+</html>

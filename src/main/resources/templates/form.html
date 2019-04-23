@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" method="post" th:action="@{/user/save}" th:object="${user}">
+    <input th:field="*{id}" type="hidden"/><br>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input th:errorclass="field-error" th:field="*{name}" type="text"/></td>
+        </tr>
+        <tr>
+            <td>Sex</td>
+            <td><input th:errorclass="field-error" th:field="*{sex}" type="text"/></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input th:errorclass="field-error" th:field="*{phone}" type="text"/></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input th:errorclass="field-error" th:field="*{age}" type="text"/></td>
+        </tr>
+        <tr>
+            <td>Cmt</td>
+            <td><input th:errorclass="field-error" th:field="*{cmt}" type="text"/></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Save</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
